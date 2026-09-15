@@ -122,8 +122,12 @@
 	const titleAnim = createTextAnimation(() => titleChars, c => titleChars = c, title, 5);
 	const bioAnim = createTextAnimation(() => bioChars, c => bioChars = c, bio, 5);
 
-	function copyEmail() {
-		navigator.clipboard.writeText(email);
+	async function copyEmail() {
+		try {
+			await navigator.clipboard.writeText(email);
+		} catch {
+			return;
+		}
 		copied = true;
 		clearTimeout(copyTimeout);
 		copyTimeout = setTimeout(() => copied = false, 2000);
