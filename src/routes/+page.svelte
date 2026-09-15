@@ -213,6 +213,9 @@
 		return () => {
 			cancelAnimationFrame(animationId);
 			window.removeEventListener('resize', resize);
+			titleAnim.stop();
+			bioAnim.stop();
+			clearTimeout(copyTimeout);
 		};
 	});
 </script>
