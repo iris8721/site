@@ -141,6 +141,8 @@
 		const trailLength = 30;
 
 		let animationId: number;
+		let width: number;
+		let height: number;
 		let columns: number;
 		let drops: number[];
 		let offsets: number[];
@@ -150,16 +152,20 @@
 		let currentSpeed = 1;
 
 		const initColumns = () => {
-			columns = Math.floor(canvas.width / spacing);
-			drops = Array.from({ length: columns }, () => Math.random() * (canvas.height / fontSize + 50) - 50);
+			columns = Math.floor(width / spacing);
+			drops = Array.from({ length: columns }, () => Math.random() * (height / fontSize + 50) - 50);
 			offsets = Array.from({ length: columns }, () => (Math.random() - 0.5) * spacing * 0.8);
 			speeds = Array.from({ length: columns }, () => 0.05 + Math.random() * 0.1);
 			trails = Array.from({ length: columns }, () => []);
 		};
 
 		const resize = () => {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
+			const dpr = window.devicePixelRatio || 1;
+			width = window.innerWidth;
+			height = window.innerHeight;
+			canvas.width = width * dpr;
+			canvas.height = height * dpr;
+			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 			initColumns();
 		};
 
@@ -174,7 +180,7 @@
 
 			const effectiveTrailLength = Math.round(trailLength / currentSpeed);
 
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.clearRect(0, 0, width, height);
 			ctx.font = `${fontSize}px ui-monospace, monospace`;
 
 			for (let i = 0; i < columns; i++) {
@@ -190,7 +196,7 @@
 					ctx.fillText(trails[i][j].char, x, trails[i][j].y);
 				}
 
-				if (y > canvas.height && Math.random() > 0.98) {
+				if (y > height && Math.random() > 0.98) {
 					drops[i] = -Math.random() * 20;
 					offsets[i] = (Math.random() - 0.5) * spacing * 0.8;
 					speeds[i] = 0.05 + Math.random() * 0.1;
