@@ -22,36 +22,57 @@
 		react: { label: "react", color: "#61dafb", link: "https://react.dev" },
 		python: { label: "python", color: "#3776ab", link: "https://www.python.org" },
 		pytorch: { label: "pytorch", color: "#ee4c2c", link: "https://pytorch.org" },
-		kubernetes: { label: "kubernetes", color: "#326ce5", link: "https://kubernetes.io" }
+		kubernetes: { label: "kubernetes", color: "#326ce5", link: "https://kubernetes.io" },
+		java: { label: "java", color: "#b07219", link: "https://www.java.com" },
+		node: { label: "node.js", color: "#5fa04e", link: "https://nodejs.org" },
+		go: { label: "go", color: "#00add8", link: "https://go.dev" }
 	};
 
 	const projects = [
 		{
-			name: "Project Alpha",
-			badge: "closed",
-			image: "",
-			subtitle: "Placeholder subtitle",
-			description: "A placeholder project description that explains what this project does and its key features.",
-			tags: ["rust", "svelte", "postgres"],
-			link: "#"
-		},
-		{
-			name: "Project Beta",
+			name: "umbra",
 			badge: "open",
 			image: "",
-			subtitle: "Another subtitle",
-			description: "Another placeholder project description with details about the implementation.",
-			tags: ["typescript", "react"],
-			link: "#"
+			subtitle: "Embeddable scripting language",
+			description: "Lua-inspired language built from scratch in Rust: lexer, bytecode VM, garbage collector, and a small C FFI for embedding.",
+			tags: ["rust"],
+			link: "https://github.com/iris8721/umbra"
 		},
 		{
-			name: "Project Gamma",
-			badge: "wip",
+			name: "waterloo-craft",
+			badge: "open",
 			image: "",
-			subtitle: "Yet another subtitle",
-			description: "Yet another placeholder describing the project scope and technologies used.",
-			tags: ["python", "pytorch", "kubernetes"],
-			link: "#"
+			subtitle: "Minecraft server plugin suite",
+			description: "Thirteen custom PaperMC plugins — duels, bounties, combat logging, shops — powering a Waterloo community Minecraft server.",
+			tags: ["java"],
+			link: "https://github.com/iris8721/waterloo-craft"
+		},
+		{
+			name: "deadlock-player-finder",
+			badge: "open",
+			image: "",
+			subtitle: "Deadlock player identification",
+			description: "Identifies players in Valve's Deadlock by correlating match fingerprints across game history.",
+			tags: ["node"],
+			link: "https://github.com/iris8721/deadlock-player-finder"
+		},
+		{
+			name: "grt",
+			badge: "open",
+			image: "",
+			subtitle: "Live transit map",
+			description: "Real-time map of GRT buses and the ION LRT in Waterloo Region, served from GTFS schedule and realtime feeds.",
+			tags: ["go"],
+			link: "https://github.com/iris8721/grt"
+		},
+		{
+			name: "wordle",
+			badge: "open",
+			image: "",
+			subtitle: "Terminal Wordle solver",
+			description: "Zero-dependency Rust CLI that narrows the answer list from your guesses and ranks the next move by expected information gain.",
+			tags: ["rust"],
+			link: "https://github.com/iris8721/wordle"
 		}
 	];
 
@@ -233,7 +254,7 @@
 							{/if}
 						{/each}
 					</div>
-					<a href={project.link} class="card-link" target="_blank" rel="noopener">Visit Site</a>
+					<a href={project.link} class="card-link" target="_blank" rel="noopener">View on GitHub</a>
 				</div>
 			{/each}
 		</div>
