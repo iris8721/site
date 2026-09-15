@@ -219,7 +219,7 @@
 		<p class="title" onmouseenter={titleAnim.start} onmouseleave={titleAnim.stop}>{titleChars.join('')}</p>
 		<p class="bio" onmouseenter={bioAnim.start} onmouseleave={bioAnim.stop}>{bioChars.join('')}</p>
 		<div class="links">
-			<a href="https://github.com/synqueue" target="_blank" rel="noopener">GitHub</a>
+			<a href="https://github.com/iris8721" target="_blank" rel="noopener">GitHub</a>
 			<a href="https://www.linkedin.com/in/finn-watt-83a7913ab/" target="_blank" rel="noopener">LinkedIn</a>
 			<button onclick={copyEmail}>{copied ? 'Copied!' : 'Email'}</button>
 		</div>
