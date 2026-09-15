@@ -1,20 +1,20 @@
 # site
 
 Personal portfolio. SvelteKit 2 + Svelte 5 + TypeScript, with a matrix-rain
-canvas background that dims and slows when you hover the project grid.
+canvas background that dims and slows when you hover a project card.
 
 ## run
 
 ```sh
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 ## build
 
 ```sh
-pnpm build
-pnpm preview
+npm run build
+npm run preview
 ```
 
 ## notes
