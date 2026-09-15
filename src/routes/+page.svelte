@@ -224,7 +224,7 @@
 	<title>{name} | portfolio</title>
 </svelte:head>
 
-<canvas bind:this={canvas} class="bg-canvas"></canvas>
+<canvas bind:this={canvas} class="bg-canvas" aria-hidden="true"></canvas>
 
 <main>
 	<div class="hero">
@@ -242,18 +242,18 @@
 		<h2>Projects</h2>
 		<div class="project-grid">
 			{#each projects as project}
-				<div class="project-card" role="article" onmouseenter={() => projectHover = true} onmouseleave={() => projectHover = false}>
+				<article class="project-card" onmouseenter={() => projectHover = true} onmouseleave={() => projectHover = false}>
 					<div class="card-header">
 						<h3>{project.name}</h3>
 						<span class="badge" style="--badge-color: {badges[project.badge].color}">
 							{badges[project.badge].label}
 						</span>
 					</div>
-					<div class="card-image">
-						{#if project.image}
+					{#if project.image}
+						<div class="card-image">
 							<img src={project.image} alt={project.name} />
-						{/if}
-					</div>
+						</div>
+					{/if}
 					<h4 class="card-subtitle">{project.subtitle}</h4>
 					<p class="card-description">{project.description}</p>
 					<div class="card-tags">
@@ -268,7 +268,7 @@
 						{/each}
 					</div>
 					<a href={project.link} class="card-link" target="_blank" rel="noopener">View on GitHub</a>
-				</div>
+				</article>
 			{/each}
 		</div>
 	</section>
