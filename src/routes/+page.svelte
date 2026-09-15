@@ -9,23 +9,23 @@
 	const email = "flexion360@gmail.com";
 
 	const badges: Record<string, { label: string; color: string }> = {
-		closed: { label: "closed source", color: "#f85149" },
-		open: { label: "open source", color: "#3fb950" },
-		wip: { label: "work in progress", color: "#d29922" }
+		closed: { label: "closed source", color: "#cf222e" },
+		open: { label: "open source", color: "#1a7f37" },
+		wip: { label: "work in progress", color: "#9a6700" }
 	};
 
 	const tags: Record<string, { label: string; color: string; link?: string }> = {
-		rust: { label: "rust", color: "#dea584", link: "https://www.rust-lang.org" },
-		svelte: { label: "svelte", color: "#ff3e00", link: "https://svelte.dev" },
+		rust: { label: "rust", color: "#b7410e", link: "https://www.rust-lang.org" },
+		svelte: { label: "svelte", color: "#c62f00", link: "https://svelte.dev" },
 		postgres: { label: "postgres", color: "#336791", link: "https://www.postgresql.org" },
-		typescript: { label: "typescript", color: "#3178c6", link: "https://www.typescriptlang.org" },
-		react: { label: "react", color: "#61dafb", link: "https://react.dev" },
+		typescript: { label: "typescript", color: "#2b6cb0", link: "https://www.typescriptlang.org" },
+		react: { label: "react", color: "#06749a", link: "https://react.dev" },
 		python: { label: "python", color: "#3776ab", link: "https://www.python.org" },
-		pytorch: { label: "pytorch", color: "#ee4c2c", link: "https://pytorch.org" },
+		pytorch: { label: "pytorch", color: "#c8331a", link: "https://pytorch.org" },
 		kubernetes: { label: "kubernetes", color: "#326ce5", link: "https://kubernetes.io" },
-		java: { label: "java", color: "#b07219", link: "https://www.java.com" },
-		node: { label: "node.js", color: "#5fa04e", link: "https://nodejs.org" },
-		go: { label: "go", color: "#00add8", link: "https://go.dev" }
+		java: { label: "java", color: "#9c6516", link: "https://www.java.com" },
+		node: { label: "node.js", color: "#2f7a2d", link: "https://nodejs.org" },
+		go: { label: "go", color: "#007d9c", link: "https://go.dev" }
 	};
 
 	const projects = [
@@ -436,14 +436,14 @@
 		display: inline-block;
 		font-size: 0.85rem;
 		padding: 0.5rem 1rem;
-		border: 1px solid #58a6ff;
-		color: #58a6ff;
+		border: 1px solid #0070f3;
+		color: #0070f3;
 		text-decoration: none;
 		transition: background 0.2s, color 0.2s;
 	}
 
 	.card-link:hover {
-		background: #58a6ff;
-		color: #0d1117;
+		background: #0070f3;
+		color: #fafafa;
 	}
 </style>
