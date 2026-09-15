@@ -288,7 +288,6 @@
 		flex-direction: column;
 		align-items: center;
 		font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
-		user-select: none;
 	}
 
 	.hero {
@@ -304,6 +303,7 @@
 
 	.title, .bio {
 		cursor: default;
+		user-select: none;
 	}
 
 	.title {
