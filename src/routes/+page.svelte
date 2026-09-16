@@ -4,8 +4,6 @@
 	console.log("By this art you may contemplate the variation of the 23 letters ඞ");
 
 	const name = "Finn Watt";
-	const title = "thousandaire";
-	const bio = "aura coder";
 	const email = "flexion360@gmail.com";
 
 	const badges: Record<string, { label: string; color: string }> = {
@@ -79,48 +77,8 @@
 	let copied = $state(false);
 	let copyTimeout: ReturnType<typeof setTimeout>;
 	let projectHover = $state(false);
-	let titleChars = $state(title.split(''));
-	let bioChars = $state(bio.split(''));
 	let canvas: HTMLCanvasElement;
 
-	function createTextAnimation(getText: () => string[], setText: (chars: string[]) => void, original: string, interval: number) {
-		let timer: ReturnType<typeof setInterval> | null = null;
-
-		const increment = (char: string) => {
-			if (!/[a-zA-Z]/.test(char)) return { char, carry: false };
-			const base = char === char.toUpperCase() ? 65 : 97;
-			const code = char.charCodeAt(0) - base;
-			return code === 25
-				? { char: String.fromCharCode(base), carry: true }
-				: { char: String.fromCharCode(base + code + 1), carry: false };
-		};
-
-		const advance = (chars: string[]) => {
-			const result = [...chars];
-			let carry = true;
-			for (let i = result.length - 1; i >= 0 && carry; i--) {
-				const { char, carry: c } = increment(result[i]);
-				result[i] = char;
-				carry = c;
-			}
-			return result;
-		};
-
-		return {
-			start: () => {
-				if (timer) return;
-				timer = setInterval(() => setText(advance(getText())), interval);
-			},
-			stop: () => {
-				if (timer) clearInterval(timer);
-				timer = null;
-				setText(original.split(''));
-			}
-		};
-	}
-
-	const titleAnim = createTextAnimation(() => titleChars, c => titleChars = c, title, 5);
-	const bioAnim = createTextAnimation(() => bioChars, c => bioChars = c, bio, 5);
 
 	async function copyEmail() {
 		try {
@@ -213,8 +171,6 @@
 		return () => {
 			cancelAnimationFrame(animationId);
 			window.removeEventListener('resize', resize);
-			titleAnim.stop();
-			bioAnim.stop();
 			clearTimeout(copyTimeout);
 		};
 	});
@@ -229,8 +185,6 @@
 <main>
 	<div class="hero">
 		<h1>{name}</h1>
-		<p class="title" onmouseenter={titleAnim.start} onmouseleave={titleAnim.stop}>{titleChars.join('')}</p>
-		<p class="bio" onmouseenter={bioAnim.start} onmouseleave={bioAnim.stop}>{bioChars.join('')}</p>
 		<div class="links">
 			<a href="https://github.com/iris8721" target="_blank" rel="noopener">GitHub</a>
 			<a href="https://www.linkedin.com/in/finn-watt-83a7913ab/" target="_blank" rel="noopener">LinkedIn</a>
@@ -301,22 +255,6 @@
 		font-weight: 700;
 	}
 
-	.title, .bio {
-		cursor: default;
-		user-select: none;
-	}
-
-	.title {
-		font-size: 1.25rem;
-		color: #666;
-		margin: 0 0 1rem;
-	}
-
-	.bio {
-		font-size: 1.1rem;
-		color: #444;
-		margin: 0 0 2rem;
-	}
 
 	.links {
 		display: flex;
